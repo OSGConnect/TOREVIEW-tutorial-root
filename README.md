@@ -11,7 +11,7 @@ Testing ROOT on the submit host
 -------------------------------
 For this example, we're going to use ROOT in a manner similar to a typical ATLAS job. The first thing to do is set up our working directory for the tutorial, or simply run 'tutorial root'.
 ```
-[username@login01 ~]$ mkdir -p root; cd root
+[username@login01 ~]$ mkdir -p osg-root; cd osg-root
 ```
 We'll need to run a few scripts to get the ROOT environment set up properly. This will add ROOT to our PATH and point LD_LIBRARY_PATH at the correct libraries. First, create the script *environment.sh*:
 ```bash
