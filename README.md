@@ -197,7 +197,6 @@ Log     = log/log.$(Cluster).$(Process)
 transfer_executable = True
 transfer_input_files=inspector.C,Makefile,environment.sh
 when_to_transfer_output = ON_EXIT
-+ProjectName = "ConnectTrain"
  
 requirements =isUndefined(GLIDECLIENT_Name) == FALSE
  
