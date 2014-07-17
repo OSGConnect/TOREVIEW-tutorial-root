@@ -154,19 +154,24 @@ g++ -O2 -Wall -fPIC -pthread -m64 -I/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 g++ -O2 -m64 inspector.o -L/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.18-x86_64-slc6-gcc4.7/lib -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic  -lTreePlayer -o inspector
 inspector done
 ```
-Let's try it out. We're going to be remotely reading data from the a XRootD filesystem. Replace **ROOT-FILE** below with the location of a ROOT file with event data
+To try the code out, we'll first need an example ROOT file. A ROOT file is available at http://stash.osgconnect.net/+jenkins/ex1.root. Run the following command to retrieve it:
 ```
-[username@login01 root]$ ./inspector ROOT-FILE | head -n10
-1
-susy:16076:199459108:2505
-EF_e20_medium	5071
-EF_e22_medium	5080
-EF_e22vh_medium1	5391
-EF_e45_medium1		6958
-EF_mu18			6806
-EF_mu18_MG		6881
-EF_mu18_MG_medium	7066
-EF_mu18_medium		6987
+[username@login01 root]$ wget -q --no-check-certificate http://stash.osgconnect.net/+jenkins/ex1.root
+```
+Now let's try our code out. We're going to be remotely reading data from the XRootD filesystem.
+
+```
+[username@login01 root]$ ./inspector ex1.root | head -n10
+2
+CollectionTree:6290:132131:6
+EventNumber	17671
+RunNumber	248
+StreamAOD_ref	9131
+StreamESD_ref	50859
+StreamRDO_ref	9131
+Token		45091
+physics:6290:714067858:8543
+EF_2b35_loose_3j35_a4tchad_4L1J15	3498
 ```
 Accessing software anywhere using Parrot
 ----------------------------------------
